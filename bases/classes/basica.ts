@@ -6,6 +6,9 @@
         // public team: string;
         // public realName?: string;
         static avgAge: number = 40; // static significa que la propiedad es de la clase y no del objeto
+        static getAvgAge(){ // método estático que no necesita instanciar la clase para poder usarlo
+            return this.name; // sólo puedes acceder al name
+        } 
 
         constructor(
             private name: string,
@@ -17,11 +20,21 @@
                 // Avenger.avgAge = avgAge;
             }
 
+            public bio(): string { // método
+                return `${this.name} ${this.team} ${this.realName}!!!`;
+            }
+
     }
 
     const antman: Avenger = new Avenger('Antman', 'Cap', 'Scott Lang');
     console.log(antman);
     console.log(Avenger.avgAge); // static
+
+    console.log(antman.bio());
+
+    console.log(Avenger.getAvgAge()); // método estático
     
+    
+
 
 })();
